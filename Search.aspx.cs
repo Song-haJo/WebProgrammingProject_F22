@@ -9,6 +9,10 @@ public partial class Search : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack){
+            regionTB.Text = Request.QueryString["region"];
+            peopleDDL.Text = Request.QueryString["people"];
+        }
 
     }
 
