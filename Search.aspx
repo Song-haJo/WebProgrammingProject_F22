@@ -112,9 +112,9 @@
                 <asp:Button ID="Button1" runat="server" Text="검색" />
         </div>
         <div class="sign">
-            <asp:LinkButton ID="logInLnkBtn" runat="server" CssClass="lnkBtn">로그인</asp:LinkButton>
+            <asp:LinkButton ID="logInLnkBtn" runat="server" CssClass="lnkBtn" OnClick="logInLnkBtn_Click">로그인</asp:LinkButton>
             &nbsp;&nbsp;&nbsp;
-            <asp:LinkButton ID="signUpLnkBtn" runat="server" CssClass="lnkBtn">회원가입</asp:LinkButton>
+            <asp:LinkButton ID="signUpLnkBtn" runat="server" CssClass="lnkBtn" OnClick="signUpLnkBtn_Click">회원가입</asp:LinkButton>
         </div>
         <div class="filter">
             <h2 style="text-align: center;">옵션</h2>
