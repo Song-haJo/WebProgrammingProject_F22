@@ -21,4 +21,13 @@ public partial class Main : System.Web.UI.Page
     {
 
     }
+    
+    protected void searchBtn_Click(object sender, EventArgs e)
+    {
+        string queryString = "region=" + region.Text;
+        queryString += "&";
+        queryString += "people=" + people.Text;
+        Response.Redirect(string.Format("Search.aspx?"+ queryString));
+    }
+    
 }
