@@ -18,11 +18,11 @@ INSERT INTO Accommodation_Name VALUES('M4','벨류호텔','충청북도 청주�
 INSERT INTO Accommodation_Name VALUES('M8','황금모텔','전라북도 전주시 덕진수 용산 3길 25');
 
 INSERT INTO Accommodation_Name VALUES('M11','그램드 하얏트 서울','서울시 용산구 한남동 747-7');
-INSERT INTO Accommodation_Name VALUES('','더 스테이트 선유 호텔','서울시 영등포구 양평동5가 62-3');
-INSERT INTO Accommodation_Name VALUES('','호텔 베르누이 서울','서울시 구로구 경인로 229');
-INSERT INTO Accommodation_Name VALUES('','신촌 S','서울시 마포구 서강로 128');
-INSERT INTO Accommodation_Name VALUES('','신림 릴','서울시 관악구 봉천로12길 36');
-INSERT INTO Accommodation_Name VALUES('','종로 서울이야기한옥펜션','서울시 종로구 율곡로5길 3-19');
+INSERT INTO Accommodation_Name VALUES('M1','더 스테이트 선유 호텔','서울시 영등포구 양평동5가 62-3');
+INSERT INTO Accommodation_Name VALUES('M2','호텔 베르누이 서울','서울시 구로구 경인로 229');
+INSERT INTO Accommodation_Name VALUES('M3','신촌 S','서울시 마포구 서강로 128');
+INSERT INTO Accommodation_Name VALUES('M7','신림 릴','서울시 관악구 봉천로12길 36');
+INSERT INTO Accommodation_Name VALUES('M8','종로 서울이야기한옥펜션','서울시 종로구 율곡로5길 3-19');
 
-INSERT INTO Accommodation_Name VALUES('','부산 폴마레펜션','부산시 해운대구 송정중앙로6번길 86');
-INSERT INTO Accommodation_Name VALUES('','해운대 센트럴 호텔','부산시 해운대구 중동 1137-4');
+INSERT INTO Accommodation_Name VALUES('M6','부산 폴마레펜션','부산시 해운대구 송정중앙로6번길 86');
+INSERT INTO Accommodation_Name VALUES('M5','해운대 센트럴 호텔','부산시 해운대구 중동 1137-4');
