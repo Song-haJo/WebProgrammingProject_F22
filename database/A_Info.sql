@@ -12,7 +12,7 @@ INSERT INTO Accommodation_Info VALUES('A1-S1', '서울시 중구 동호로 249',
 INSERT INTO Accommodation_Info VALUES('A1-D', '서울시 중구 동호로 249', '디럭스', 5, 60000);
 INSERT INTO Accommodation_Info VALUES('A1-S2', '서울시 중구 동호로 249', '스탠다드', 6,50000);
 
-INSERT INTO Accommodation_Info VALUES('A2-O', '제주시 첨단남길 34-1', '독채', 1, 100000);
+INSERT INTO Accommodation_Info VALUES('A2-O', '제주시 첨단남길 34-1', '독채', 6, 100000);
 
 INSERT INTO Accommodation_Info VALUES('A3-S1', '부산시 해운대구 해운대로 608-59', '스위트', 7, 50000);
 INSERT INTO Accommodation_Info VALUES('A3-D', '부산시 해운대구 해운대로 608-59', '디럭스', 8,40000);
