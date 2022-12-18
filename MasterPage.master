@@ -1,0 +1,51 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style>
+        html {
+            /*background-color: dodgerblue;*/
+            background-image: url('utah-56413209.jpg');
+            background-size: cover;
+            height: 100%;
+            font-family: NanumSquare_ac;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table width="1000px">
+                <tr>
+                    <td colspan="2" height="50px" align="center">
+                        <asp:ContentPlaceHolder ID="topCPH" runat="server">
+                            상단
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" height="700px" valign="top">
+                        <asp:ContentPlaceHolder ID="middleCPH" runat="server">
+                            중간
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" height="50px" align="center">
+                        <asp:ContentPlaceHolder ID="bottomCPH" runat="server">
+                            하단
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </form>
+</body>
+</html>
