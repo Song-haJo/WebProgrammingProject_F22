@@ -29,7 +29,19 @@
             border-radius: 25px;
             background-color: aliceblue;
         }
-
+        .auto-style1 {
+            text-align: center;
+        }
+        .auto-style2 {
+            width: 865px;
+        }
+        .auto-style3 {
+            width: 865px;
+            text-align: right;
+        }
+        .auto-style4 {
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -39,69 +51,39 @@
             <image src="logo.png" style="width: 70px;" />
         </div>
         <div class="wrap">
-        <asp:LoginView ID="LoginView1" runat="server">
-            <AnonymousTemplate>
-                <asp:Login ID="Login1" runat="server" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="NanumSquare_ac" ForeColor="#333333">
-                    <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
-                    <LayoutTemplate>
-                        <table cellpadding="1" cellspacing="0" style="border-collapse:collapse;">
-                            <tr>
-                                <td>
-                                    <table cellpadding="0">
-                                        <tr>
-                                            <td align="center" colspan="2" style="height: 50px;"><h1>로그인</h1></td>
-                                        </tr>
-                                        <tr>
-                                            <td align="right">
-                                                <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">E-mail:</asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="Email" runat="server"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="EmaileRequired" runat="server" ControlToValidate="E-mail" ErrorMessage="필수 항목입니다." ValidationGroup="ctl00$Login1">*</asp:RequiredFieldValidator>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="right">
-                                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">비밀번호:</asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="필수 항목입니다." ValidationGroup="ctl00$Login1">*</asp:RequiredFieldValidator>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <asp:CheckBox ID="RememberMe" runat="server" Text="로그인 정보 기억하기" style="margin-left: 210px;"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="center" colspan="2" style="color:Red;">
-                                                <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="right" colspan="2">
-                                                <asp:LinkButton ID="registerLB" runat="server" style="font-size: 20px; font-family: NanumSquare_ac; margin: 10px 30px; display: block; width: 100px; text-align: center; height: 20px; text-decoration: none; color: dodgerblue;" >회원가입</asp:LinkButton>&nbsp;
-                                                <!--<asp:LinkButton ID="pwRecoveryLB" runat="server" Style="font-size: 20px; font-family: NanumSquare_ac; position: absolute; margin-top: -30px; margin-left: -296px; text-decoration: none; color: dodgerblue;">암호 찾기</asp:LinkButton>-->
-                                                <asp:Button ID="LoginButton" runat="server" CommandName="Login" Style="font-size: 20px; font-family: NanumSquare_ac; position: absolute; margin-top: -35px; margin-left: -115px;" Text="로그인" ValidationGroup="ctl00$Login1" />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </LayoutTemplate>
-                    <LoginButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="NanumSquare_ac" ForeColor="#284E98" />
-                    <TextBoxStyle />
-                    <TitleTextStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                </asp:Login>
-            </AnonymousTemplate>
-            <LoggedInTemplate>
-                <p style="text-align: center; height: 50px; margin-top: 20px;"><asp:LoginName ID="LoginName" runat="server" />님 반갑습니다.</p><br />
-                <asp:LinkButton ID="changePwLB" runat="server" style="font-size: 20px; font-family: NanumSquare_ac; margin-top: -20px; margin-left: 125px; margin-bottom: 10px; display: block; width: 100px; text-align: center; height: 20px; text-decoration: none; color: dodgerblue;">암호 변경</asp:LinkButton>
-                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="로그아웃" style="font-size: 20px; font-family: NanumSquare_ac; margin-top: -30px; margin-left: 275px; display: block; width: 100px; text-align: center; height: 20px; text-decoration: none; color: dodgerblue;" />
-            </LoggedInTemplate>
-        </asp:LoginView>
+            <table style="width: 100%;">
+                <tr>
+                    <td colspan="3"><h1 class="auto-style1">로그인</h1></td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">E-mail:</td>
+                    <td colspan="2">
+                        <asp:TextBox ID="Email" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        <asp:Label ID="Label2" runat="server" Text="비밀번호:"></asp:Label>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="pass" runat="server" TextMode="Password"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="auto-style1" style="color:Red";>
+                        <asp:Label ID="Message" runat="server" Text=""></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
+                        <asp:Button ID="singup" runat="server" Text="회원가입" />
+                    </td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style4">
+                        <asp:Button ID="singin" runat="server" Text="로그인" OnClick="singin_Click" />
+                    </td>
+                </tr>
+            </table>
             </div>
     </div>
     </form>
