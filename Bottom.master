@@ -1,0 +1,12 @@
+<%@ Master Language="C#" 
+    MasterPageFile="~/Top.master"
+    AutoEventWireup="true" CodeFile="Bottom.master.cs" Inherits="Bottom" %>
+
+<asp:Content ID="middleC" ContentPlaceHolderID="middleCPH" runat="server">
+    <asp:ContentPlaceHolder ID="middleCPH" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="bottomC" ContentPlaceHolderID="bottomCPH" runat="server">
+    <div> bbb</div>
+</asp:Content>
