@@ -43,7 +43,7 @@ INSERT INTO Accommodation_Info VALUES('A9-S2', '서울시 마포구 서강로 12
 INSERT INTO Accommodation_Info VALUES('A10-S1', '서울시 관악구 봉천로12길 36', '스위트', 4,30000);
 INSERT INTO Accommodation_Info VALUES('A10-S2', '서울시 관악구 봉천로12길 36', '스탠다드', 4,20000);
 
-INSERT INTO Accommodation_Info VALUES('A11-O', '서울 종로구 율곡로5길 3-19', '독채', 6,70000);
+INSERT INTO Accommodation_Info VALUES('A11-O', '서울시 종로구 율곡로5길 3-19', '독채', 6,70000);
 
 INSERT INTO Accommodation_Info VALUES('A12-O', '부산시 해운대구 송정중앙로6번길 86', '오션뷰', 4, 60000);
 
