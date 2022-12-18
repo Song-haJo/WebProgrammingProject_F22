@@ -7,9 +7,7 @@ using System.Web.UI.WebControls;
 
 using System.Web.Security;
 
-public partial class Main : System.Web.UI.Page
-{
-    public partial class Main : System.Web.UI.Page
+ public partial class Main : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,5 +47,3 @@ public partial class Main : System.Web.UI.Page
             Response.Redirect(string.Format("My.aspx?"));
         }
     }
-    
-}
