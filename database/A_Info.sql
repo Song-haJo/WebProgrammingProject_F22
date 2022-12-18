@@ -25,29 +25,29 @@ INSERT INTO Accommodation_Info VALUES('A4-S2', '대전시 중구 수침로 67', 
 INSERT INTO Accommodation_Info VALUES('A5-S1', '강원도 평창군 대관령면 오목길 107', '스위트', 5,60000);
 INSERT INTO Accommodation_Info VALUES('A5-D', '강원도 평창군 대관령면 오목길 107', '디럭스', 6,50000);
 
-INSERT INTO Accommodation_Info VALUES('', '서울시 용산구 한남동 747-7', '스탠다드', 2,65000);
-INSERT INTO Accommodation_Info VALUES('', '서울시 용산구 한남동 747-7', '프리미엄', 2,70000);
+INSERT INTO Accommodation_Info VALUES('A6-S', '서울시 용산구 한남동 747-7', '스탠다드', 2,65000);
+INSERT INTO Accommodation_Info VALUES('A6-P', '서울시 용산구 한남동 747-7', '프리미엄', 2,70000);
 
-INSERT INTO Accommodation_Info VALUES('', '서울시 영등포구 양평동5가 62-3', '슈페리어', 2,40000);
-INSERT INTO Accommodation_Info VALUES('', '서울시 영등포구 양평동5가 62-3', '디럭스', 3,50000);
-INSERT INTO Accommodation_Info VALUES('', '서울시 영등포구 양평동5가 62-3', '스위트', 2,60000);
+INSERT INTO Accommodation_Info VALUES('A7-S1', '서울시 영등포구 양평동5가 62-3', '슈페리어', 2,40000);
+INSERT INTO Accommodation_Info VALUES('A7-D', '서울시 영등포구 양평동5가 62-3', '디럭스', 3,50000);
+INSERT INTO Accommodation_Info VALUES('A7-S2', '서울시 영등포구 양평동5가 62-3', '스위트', 2,60000);
 
-INSERT INTO Accommodation_Info VALUES('', '서울시 구로구 경인로 229', '디럭스', 2,40000);
-INSERT INTO Accommodation_Info VALUES('', '서울시 구로구 경인로 229', '슈페리어', 3,50000);
-INSERT INTO Accommodation_Info VALUES('', '서울시 구로구 경인로 229', '스위트', 2,60000);
-INSERT INTO Accommodation_Info VALUES('', '서울시 구로구 경인로 229', '온돌', 4,60000);
+INSERT INTO Accommodation_Info VALUES('A8-D', '서울시 구로구 경인로 229', '디럭스', 2,40000);
+INSERT INTO Accommodation_Info VALUES('A8-S1', '서울시 구로구 경인로 229', '슈페리어', 3,50000);
+INSERT INTO Accommodation_Info VALUES('A8-S2', '서울시 구로구 경인로 229', '스위트', 2,60000);
+INSERT INTO Accommodation_Info VALUES('A8-O', '서울시 구로구 경인로 229', '온돌', 4,60000);
 
-INSERT INTO Accommodation_Info VALUES('', '서울시 마포구 서강로 128', '스위트', 4,50000);
-INSERT INTO Accommodation_Info VALUES('', '서울시 마포구 서강로 128', '스탠다드', 4,30000);
+INSERT INTO Accommodation_Info VALUES('A9-S1', '서울시 마포구 서강로 128', '스위트', 4,50000);
+INSERT INTO Accommodation_Info VALUES('A9-S2', '서울시 마포구 서강로 128', '스탠다드', 4,30000);
 
-INSERT INTO Accommodation_Info VALUES('', '서울시 관악구 봉천로12길 36', '스위트', 4,30000);
-INSERT INTO Accommodation_Info VALUES('', '서울시 관악구 봉천로12길 36', '스탠다드', 4,20000);
+INSERT INTO Accommodation_Info VALUES('A10-S1', '서울시 관악구 봉천로12길 36', '스위트', 4,30000);
+INSERT INTO Accommodation_Info VALUES('A10-S2', '서울시 관악구 봉천로12길 36', '스탠다드', 4,20000);
 
-INSERT INTO Accommodation_Info VALUES('', '서울 종로구 율곡로5길 3-19', '독채', 6,70000);
+INSERT INTO Accommodation_Info VALUES('A11-O', '서울 종로구 율곡로5길 3-19', '독채', 6,70000);
 
-INSERT INTO Accommodation_Info VALUES('', '부산시 해운대구 송정중앙로6번길 86', '오션뷰', 4, 60000);
+INSERT INTO Accommodation_Info VALUES('A12-O', '부산시 해운대구 송정중앙로6번길 86', '오션뷰', 4, 60000);
 
-INSERT INTO Accommodation_Info VALUES('', '부산시 해운대구 중동 1137-4', '스위트', 4, 80000);
-INSERT INTO Accommodation_Info VALUES('', '부산시 해운대구 중동 1137-4', '스탠다드', 2, 60000);
-INSERT INTO Accommodation_Info VALUES('', '부산시 해운대구 중동 1137-4', '슈페리어', 3, 70000);
-INSERT INTO Accommodation_Info VALUES('', '부산시 해운대구 중동 1137-4', '디럭스', 6, 60000);
+INSERT INTO Accommodation_Info VALUES('A13-S1', '부산시 해운대구 중동 1137-4', '스위트', 4, 80000);
+INSERT INTO Accommodation_Info VALUES('A13-S2', '부산시 해운대구 중동 1137-4', '스탠다드', 2, 60000);
+INSERT INTO Accommodation_Info VALUES('A13-S3', '부산시 해운대구 중동 1137-4', '슈페리어', 3, 70000);
+INSERT INTO Accommodation_Info VALUES('A13-D', '부산시 해운대구 중동 1137-4', '디럭스', 6, 60000);
