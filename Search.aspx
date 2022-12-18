@@ -132,8 +132,9 @@
                 <asp:ListItem Value="G">게스트 하우스</asp:ListItem>
             </asp:CheckBoxList> <!--옵션목록 추가-->
             <h4 style="font-size: 22px; margin: 0px 25px 0px; padding-top: 15px;">▷ 가격대 (최소 ~ 최대)</h4>
-            <p><asp:TextBox ID="MinPriceTB" runat="server" ></asp:TextBox>원
-            &nbsp;~<asp:TextBox ID="MaxPriceTB" runat="server" ></asp:TextBox>원</p>
+            <p><asp:TextBox ID="MinPriceTB" runat="server" OnTextChanged="MinPriceTB_TextChanged" AutoPostBack="true"></asp:TextBox>원
+            &nbsp;~<asp:TextBox ID="MaxPriceTB" runat="server" OnTextChanged="MaxPriceTB_TextChanged" AutoPostBack="true"></asp:TextBox>원</p>
+            <!--텍스트박스 이벤트 추가, 오토추가-->
         </div>
         <div class="result">
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SNCConnectionString %>" SelectCommand="SELECT Accommodation_Name.A_Name, Accommodation_Name.A_Address, Accommodation_Info.Room_Numer, Accommodation_Info.Price, Accommodation_Info.Room_type, Accommodation_Name.A_Option FROM Accommodation_Name INNER JOIN Accommodation_Info ON Accommodation_Name.A_Address = Accommodation_Info.A_Address"></asp:SqlDataSource>
