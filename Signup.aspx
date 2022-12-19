@@ -14,32 +14,37 @@
             height: 100%;
             font-family: NanumSquare_ac;
         }
+
         .wrap {
             margin: 200px auto;
             width: 500px;
             height: 370px;
         }
+
         td {
             font-family: NanumSquare_ac;
             font-size: 20px;
             height: 30px;
             width: 500px;
         }
+
         #CreateUserWizard1, table {
             border-radius: 25px;
         }
+        .logo {
+            margin: 180px auto -180px;
+            width: 70px;
+        }
     </style>
 </head>
-
 <body>
     <form id="form1" runat="server">
-    <div>
-        <div class="logo">
-            <image src="logo.png" style="width: 70px;" />
-        </div>
-        <div class="wrap">
-
-            <table style="width:100%;">
+        <div>
+            <div class="logo">
+                <image src="logo.png" style="width: 70px;" />
+            </div>
+            <div class="wrap">
+                <table style="width:100%;">
                 <tr>
                     <td colspan="4" class="auto-style1">
                         <h1>회원가입</h1>          
@@ -112,9 +117,8 @@
                     </td>
                 </tr>
             </table>
-
             </div>
-    </div>
+        </div>
     </form>
 </body>
 </html>
