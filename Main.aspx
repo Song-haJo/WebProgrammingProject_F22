@@ -6,6 +6,9 @@
 <head runat="server">
     <title></title>
     <style>
+        a {
+            text-decoration: none;
+        }
         html {
             /*background-color: dodgerblue;*/
             background-image: url('utah-56413209.jpg');
