@@ -85,7 +85,14 @@
                     <br />
                     <br />
                     <h3 class="font" style="font-size: 25px">인원</h3>
-                    <asp:TextBox ID="people" runat="server" CssClass="font"></asp:TextBox>
+                    <asp:DropDownList ID="people" runat="server" CssClass="font" style="width: 220px; height: 32px;">
+                    <asp:ListItem>1</asp:ListItem>
+                    <asp:ListItem>2</asp:ListItem>
+                    <asp:ListItem>3</asp:ListItem>
+                    <asp:ListItem>4</asp:ListItem>
+                    <asp:ListItem>5</asp:ListItem>
+                    <asp:ListItem>6</asp:ListItem>
+                </asp:DropDownList> <!--텍스트 박스에서 드롭다운으로 변경-->
                 </div>
                 <asp:Button ID="searchBtn" runat="server" Text="검색" CssClass="btn" />
             </div>
