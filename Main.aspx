@@ -14,7 +14,7 @@
             font-family: NanumSquare_ac;
         }
 
-        .makeAReservation, .checkAReservation {
+        .makeAReservation {
             background-color: aliceblue;
             width: 1000px;
             height: 350px;
@@ -33,20 +33,34 @@
         }
 
         .wrap {
-            margin: 150px auto 80px;
+            margin: 30px auto 80px;
             width: 1000px;
             height: 380px;
         }
         
         .sign {
             margin-top: -100px;
-            margin-right: 80px;
+            margin-right: 100px;
+        }
+        
+        .btn {
+            width: 80px;
+            height: 50px;
+            font-family: NanumSquare_ac;
+            font-size: 20pt;
+            margin-top: 120px;
+            margin-left: 30px;
+            vertical-align: middle;
+            text-align: center;
         }
     </style>
     <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
+        <div>
+            <image src="Logo1.png" style="height:100px; margin-left: 180px; margin-top: 50px;"></image>
+        </div>
         <div class="sign" style="float: right;">
             <asp:LoginView id="LoginView1" runat="server">
             <AnonymousTemplate>
@@ -103,9 +117,9 @@
                     <asp:ListItem>4</asp:ListItem>
                     <asp:ListItem>5</asp:ListItem>
                     <asp:ListItem>6</asp:ListItem>
-                </asp:DropDownList> <!--텍스트 박스에서 드롭다운으로 변경-->
+                    </asp:DropDownList> <!--텍스트 박스에서 드롭다운으로 변경-->
                 </div>
-                <asp:Button ID="searchBtn" runat="server" Text="검색" CssClass="btn" OnClick="searchBtn_Click" />
+                <asp:Button ID="searchBtn" runat="server" Text="검색" CssClass="btn" OnClick="searchBtn_Click"/>
             </div>
         </div>
         <!--div class="wrap">
