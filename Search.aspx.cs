@@ -5,201 +5,108 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Search : System.Web.UI.Page
+using System.Web.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web.Security;
+public partial class Login : System.Web.UI.Page
 {
-    private string connectionString = @"Data Source=DESKTOP-KO6C2CA;" + "Initial Catalog=Test;" + "User ID=sa;Password=1234";
-        protected void Page_Load(object sender, EventArgs e)
+    private string connectionString = @"Data Source=LAPTOP-EAQ34G6M;" + "Initial Catalog=SNC;" + "User ID=sa;Password=3840"; //해당 db로 바꿀것
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnSingup_Click(object sender, EventArgs e)
+    {
+        string insertSQL = "INSERT INTO Customer";
+        insertSQL += "(Customer_Name, PhoneNumber, Customer_EMail, ";
+        insertSQL += "Customer_Password, Customer_Address) VALUES ";
+
+        insertSQL += "(@pname, @ppnum, @email, @pw, @ad)";
+
+        SqlConnection conn = new SqlConnection(connectionString);
+        SqlCommand cmd = new SqlCommand(insertSQL, conn);
+
+        cmd.Parameters.AddWithValue("@pname", Name.Text);
+        cmd.Parameters.AddWithValue("@ppnum", Phone.Text);
+        cmd.Parameters.AddWithValue("@email", Email.Text);
+        cmd.Parameters.AddWithValue("@pw", Pessword.Text);
+        cmd.Parameters.AddWithValue("@ad", Address.Text);
+
+        int inserted = 0;
+        try
         {
-
-            if (!IsPostBack){
-                regionTB.Text = Request.QueryString["region"];
-                peopleDDL.Text = Request.QueryString["people"];
-                fromD.Value = Request.QueryString["dateFrom"];
-                toD.Value = Request.QueryString["dateTo"];
-                
-
-                string selectSQL = "SELECT Accommodation_Name.A_Name, Accommodation_Name.A_Address, Accommodation_Info.Room_Numer, " +
-                "Accommodation_Info.Price, Accommodation_Info.Room_type, Accommodation_Name.A_Option FROM Accommodation_Name " +
-                "INNER JOIN Accommodation_Info ON Accommodation_Name.A_Address = Accommodation_Info.A_Address";
-                selectSQL += " WHERE (Accommodation_Name.A_Address LIKE '%" + regionTB.Text;
-                selectSQL += "%' ";
-                selectSQL += "OR A_Name LIKE '%" + regionTB.Text;
-                selectSQL += "%') ";
-                selectSQL += "AND Room_Numer >= " + peopleDDL.Text;
-                SqlDataSource1.SelectCommand = selectSQL;
-            }
-            
+            conn.Open();
+            inserted = cmd.ExecuteNonQuery();
+            //lblStatus.Text = inserted.ToString() + " 개의 레코드가 삽입되었습니다.";
+        }
+        catch (Exception error)
+        {
+            ErrorMessage.Text = "데이터베이스를 읽는 동안 오류가 발생했습니다.<br />";
+            ErrorMessage.Text += error.Message;
+        }
+        finally
+        {
+            conn.Close();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            
-            string queryString = "region=" + regionTB.Text;
-            queryString += "&";
-            queryString += "people=" + peopleDDL.Text;
-            queryString += "&";
-            queryString += "dateFrom=" + fromD.Value;
-            queryString += "&";
-            queryString += "dateTo=" + toD.Value;
-            Response.Redirect(string.Format("Search.aspx?" + queryString));
+        Response.Redirect(string.Format("Login.aspx?"));
+    }
 
+    protected void Name_TextChanged(object sender, EventArgs e)
+    {
+        bool open = false;
+        if (Name.Text == "")
+        {
+            announcement.Text = "성명을 입력해 주세요.";
+        }
+        else if (Phone.Text == "")
+        {
+            announcement.Text = "전화번호를 입력해 주세요.";
+        }
+        else if (Email.Text == "")
+        {
+            announcement.Text = "이메일을 입력해 주세요.";
+        }
+        else if (Pessword.Text == "")
+        {
+            announcement.Text = "비밀번호를 입력해 주세요.";
+        }
+        else if (PesswordCheck.Text == "")
+        {
+            announcement.Text = "비밀번호 확인을 입력해 주세요.";
+        }
+        else if (Address.Text == "")
+        {
+            announcement.Text = "주소 입력해 주세요.";
+        }
+        else
+        {
+            announcement.Text = "";
+            open = true;
         }
 
-        protected void logInLnkBtn_Click(object sender, EventArgs e)
+        if (Pessword.Text != PesswordCheck.Text)
         {
-            Response.Redirect(string.Format("Login.aspx?"));
+            ErrorMessage.Text = "비밀번호가 일치하지 않습니다.";
         }
-
-        protected void signUpLnkBtn_Click(object sender, EventArgs e)
+        else
         {
-            Response.Redirect(string.Format("Singup.aspx?"));
+            ErrorMessage.Text = "";
+            if (open == true)
+            {
+                btnSingup.Visible = true;
+            }
         }
+    }
 
-        protected void optionCBL_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectSQL ="SELECT Accommodation_Name.A_Name, Accommodation_Name.A_Address, Accommodation_Info.Room_Numer, " +
-                "Accommodation_Info.Price, Accommodation_Info.Room_type, Accommodation_Name.A_Option FROM Accommodation_Name " +
-                "INNER JOIN Accommodation_Info ON Accommodation_Name.A_Address = Accommodation_Info.A_Address";
-            selectSQL += " WHERE (Accommodation_Name.A_Address LIKE '%" + Request.QueryString["region"];
-            selectSQL += "%' ";
-            selectSQL += "OR A_Name LIKE '%" + Request.QueryString["region"];
-            selectSQL += "%') ";
-            selectSQL += "AND Room_Numer >= " + Request.QueryString["people"];
-            
+    protected void PesswordCheck_PreRender(object sender, EventArgs e)
+    {
+        PesswordCheck.Attributes.Add("value", PesswordCheck.Text);
+    }
 
-            string str = "";
-            foreach (ListItem item in optionCBL.Items)
-            {
-                if (item.Selected)
-                {
-                    if (str == "")
-                    {
-                        str += "'" + item.Value.ToString() + "'";
-                        selectSQL += " AND A_Option IN ('" + item.Value.ToString() +"'";
-                    }
-                    else {
-                        str += "," + "'" + item.Value.ToString() + "'";
-                        selectSQL += ",'" + item.Value.ToString() + "'";
-                    }  
-                }   
-            }
-
-            if(optionCBL.SelectedItem != null)
-            {
-                selectSQL += ")";
-            }
-
-            if(MinPriceTB.Text != "")
-            {
-                selectSQL += " AND Price >= " + MinPriceTB.Text;
-            }
-            if (MaxPriceTB.Text != "")
-            {
-                selectSQL += " AND Price <= " + MaxPriceTB.Text;
-            }
-            SqlDataSource1.SelectCommand = selectSQL;
-        }
-
-        protected void MinPriceTB_TextChanged(object sender, EventArgs e)
-        {
-            string selectSQL = "SELECT Accommodation_Name.A_Name, Accommodation_Name.A_Address, Accommodation_Info.Room_Numer, " +
-                "Accommodation_Info.Price, Accommodation_Info.Room_type, Accommodation_Name.A_Option FROM Accommodation_Name " +
-                "INNER JOIN Accommodation_Info ON Accommodation_Name.A_Address = Accommodation_Info.A_Address";
-            selectSQL += " WHERE (Accommodation_Name.A_Address LIKE '%" + Request.QueryString["region"];
-            selectSQL += "%' ";
-            selectSQL += "OR A_Name LIKE '%" + Request.QueryString["region"];
-            selectSQL += "%') ";
-            selectSQL += "AND Room_Numer >= " + Request.QueryString["people"];
-
-
-            string str = "";
-            foreach (ListItem item in optionCBL.Items)
-            {
-                if (item.Selected)
-                {
-                    if (str == "")
-                    {
-                        str += "'" + item.Value.ToString() + "'";
-                        selectSQL += " AND A_Option IN ('" + item.Value.ToString() + "'";
-                    }
-                    else
-                    {
-                        str += "," + "'" + item.Value.ToString() + "'";
-                        selectSQL += ",'" + item.Value.ToString() + "'";
-                    }
-                }
-            }
-
-            if (optionCBL.SelectedItem != null)
-            {
-                selectSQL += ")";
-            }
-
-            if (MinPriceTB.Text != "")
-            {
-                selectSQL += " AND Price >= " + MinPriceTB.Text;
-            }
-            if (MaxPriceTB.Text != "")
-            {
-                selectSQL += " AND Price <= " + MaxPriceTB.Text;
-            }
-            SqlDataSource1.SelectCommand = selectSQL;
-        }
-
-        protected void MaxPriceTB_TextChanged(object sender, EventArgs e)
-        {
-            string selectSQL = "SELECT Accommodation_Name.A_Name, Accommodation_Name.A_Address, Accommodation_Info.Room_Numer, " +
-                "Accommodation_Info.Price, Accommodation_Info.Room_type, Accommodation_Name.A_Option FROM Accommodation_Name " +
-                "INNER JOIN Accommodation_Info ON Accommodation_Name.A_Address = Accommodation_Info.A_Address";
-            selectSQL += " WHERE (Accommodation_Name.A_Address LIKE '%" + Request.QueryString["region"];
-            selectSQL += "%' ";
-            selectSQL += "OR A_Name LIKE '%" + Request.QueryString["region"];
-            selectSQL += "%') ";
-            selectSQL += "AND Room_Numer >= " + Request.QueryString["people"];
-
-
-            string str = "";
-            foreach (ListItem item in optionCBL.Items)
-            {
-                if (item.Selected)
-                {
-                    if (str == "")
-                    {
-                        str += "'" + item.Value.ToString() + "'";
-                        selectSQL += " AND A_Option IN ('" + item.Value.ToString() + "'";
-                    }
-                    else
-                    {
-                        str += "," + "'" + item.Value.ToString() + "'";
-                        selectSQL += ",'" + item.Value.ToString() + "'";
-                    }
-                }
-            }
-
-            if (optionCBL.SelectedItem != null)
-            {
-                selectSQL += ")";
-            }
-
-            if (MinPriceTB.Text != "")
-            {
-                selectSQL += " AND Price >= " + MinPriceTB.Text;
-            }
-            if (MaxPriceTB.Text != "")
-            {
-                selectSQL += " AND Price <= " + MaxPriceTB.Text;
-            }
-            SqlDataSource1.SelectCommand = selectSQL;
-        }
-
-        
-        protected void Unnamed1_ItemCommand(object source, DataListCommandEventArgs e)
-        {
-            LinkButton linkbut = (LinkButton)e.Item.FindControl("Linkpage");
-             
-            string queryString = "Room=" + linkbut.Text;
-            
-            Response.Redirect(string.Format("Room.aspx?" + queryString));
-        }
+    protected void Pessword_PreRender(object sender, EventArgs e)
+    {
+        Pessword.Attributes.Add("value", Pessword.Text);
     }
 }
