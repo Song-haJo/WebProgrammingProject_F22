@@ -76,16 +76,17 @@
                 <h1>마이 페이지</h1>
                 <div class="reservationInfo">
                     <h2>예약 정보</h2>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SNCConnectionString %>" SelectCommand="SELECT Customer.Customer_Number AS Expr1, Customer.Customer_Name, Customer.Customer_EMail, Accommodation_Info.A_Number, Accommodation_Info.A_Address, Accommodation_Name.A_Address AS Expr2, Accommodation_Name.A_Name, Accommodation_Info.Room_type, Accommodation_Info.Price, Reservation.* FROM Reservation INNER JOIN Customer ON Reservation.Customer_Number = Customer.Customer_Number INNER JOIN Accommodation_Info ON Reservation.Serial_Number = Accommodation_Info.A_Number INNER JOIN Accommodation_Name ON Accommodation_Info.A_Address = Accommodation_Name.A_Address"></asp:SqlDataSource>
                     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                         <ItemTemplate>
                             <div class="info">
                                 <strong>
                                     <!--예약 번호-->
-                                    <!--숙소명-->
-                                </strong>
-                                <!--주소-->
-                                <!--날짜-->
+                                    <%# Eval("A_Name") %>&nbsp;<%# Eval("Room_type") %>
+                                </strong><br />
+                                <%# Eval("A_Address") %> <br />
+                                <%# Eval("R_Start_date", "{0:yyyy-MM-dd}") %> ~ <%# Eval("R_End_date", "{0:yyyy-MM-dd}") %><br />
+                                 <%# Eval("Visitor_Number") %>명
                             </div>
                         </ItemTemplate>
                         <SeparatorTemplate>
