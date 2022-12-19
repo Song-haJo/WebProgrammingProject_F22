@@ -1,15 +1,16 @@
 CREATE TABLE Reservation(
 R_Number VARCHAR(40) PRIMARY KEY,
 Serial_Number VARCHAR(40),
-Customer_Number VARCHAR(40),
+Customer_Number int,
 R_Start_date date,
 R_End_date date,
 Visitor_Number int,
-FOREIGN KEY(Serial_Number) REFERENCES Accommodation_Info(A_Number) ON DELETE CASCADE,
-FOREIGN KEY(Customer_Number) REFERENCES Customer(Customer_Number) ON DELETE CASCADE
+FOREIGN KEY(Serial_Number) REFERENCES Accommodation_Info(A_Number),
+FOREIGN KEY(Customer_Number) REFERENCES Customer(Customer_Number)
 );
 
-INSERT INTO Reservation VALUES('R1','A1-S1','C1','2022-12-17','2022-12-18',3);
+SELECT * FROM Customer
+INSERT INTO Reservation VALUES('R1','A1-S1','3','2022-12-17','2022-12-18',3);
 /*
 INSERT INTO Reservation VALUES('R1','A3-D', 'C2','2019-04-10','2019-04-11',3);
 INSERT INTO Reservation VALUES('R2','A3-D', 'C3','2019-04-11','2019-04-13',2);

@@ -48,9 +48,20 @@
 <body>
     <form id="form1" runat="server">
         <div class="sign" style="float: right;">
-            <asp:LinkButton ID="logInLnkBtn" runat="server" CssClass="lnkBtn" OnClick="logInLnkBtn_Click">로그인</asp:LinkButton>
-            &nbsp;&nbsp;&nbsp;
-            <asp:LinkButton ID="signUpLnkBtn" runat="server" CssClass="lnkBtn" OnClick="signUpLnkBtn_Click">회원가입</asp:LinkButton>
+            <asp:LoginView id="LoginView1" runat="server">
+            <AnonymousTemplate>
+                <!-- 로그인 전 -->
+               <asp:LinkButton ID="logInLnkBtn" runat="server" CssClass="lnkBtn" OnClick="logInLnkBtn_Click">로그인</asp:LinkButton>
+               &nbsp;&nbsp;&nbsp;
+               <asp:LinkButton ID="signUpLnkBtn" runat="server" CssClass="lnkBtn" OnClick="signUpLnkBtn_Click">회원가입</asp:LinkButton>
+            </AnonymousTemplate>
+            <LoggedInTemplate>
+               <!-- 로그인 후 -->
+               <asp:LinkButton ID="logOutLnkBtn" runat="server" CssClass="lnkBtn" OnClick="logOutLnkBtn_Click">로그아웃</asp:LinkButton>
+               &nbsp;&nbsp;&nbsp;
+               <asp:LinkButton ID="Mypage" runat="server" CssClass="lnkBtn" OnClick="Mypage_Click">마이페이지</asp:LinkButton>
+            </LoggedInTemplate>
+            </asp:LoginView>
         </div>
         <div class="wrap">
             <h2>예약</h2>
@@ -94,7 +105,7 @@
                     <asp:ListItem>6</asp:ListItem>
                 </asp:DropDownList> <!--텍스트 박스에서 드롭다운으로 변경-->
                 </div>
-                <asp:Button ID="searchBtn" runat="server" Text="검색" CssClass="btn" />
+                <asp:Button ID="searchBtn" runat="server" Text="검색" CssClass="btn" OnClick="searchBtn_Click" />
             </div>
         </div>
         <!--div class="wrap">

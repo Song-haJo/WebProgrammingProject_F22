@@ -99,11 +99,11 @@
             </div>
             <div>
                 <h4 style="font-size: 22px; margin: 0px 25px 0px; padding-top: 15px;">입실</h4>
-                <input id="fromD" name="fromDate" type="date" />
+                <input id="fromD" name="fromDate" type="date" runat="server" />
             </div>
             <div>
                 <h4 style="font-size: 22px; margin: 0px 25px 0px; padding-top: 15px;">퇴실</h4>
-                <input id="toD" name="toDate" type="date" />
+                <input id="toD" name="toDate" type="date" runat="server"/>
             </div>
             <div>
                 <h4 style="font-size: 22px; margin: 0px 25px 0px; padding-top: 15px;">인원</h4>
@@ -114,9 +114,9 @@
                     <asp:ListItem>4</asp:ListItem>
                     <asp:ListItem>5</asp:ListItem>
                     <asp:ListItem>6</asp:ListItem>
-                </asp:DropDownList> <!--목록추가-->
+                </asp:DropDownList>
             </div>
-                <asp:Button ID="Button1" runat="server" Text="검색" />
+                <asp:Button ID="Button1" runat="server" Text="검색" OnClick="Button1_Click" />
         </div>
         <div class="sign">
             <asp:LinkButton ID="logInLnkBtn" runat="server" CssClass="lnkBtn" OnClick="logInLnkBtn_Click">로그인</asp:LinkButton>
@@ -130,25 +130,26 @@
                 <asp:ListItem Value="M">모텔</asp:ListItem>
                 <asp:ListItem Value="P">펜션</asp:ListItem>
                 <asp:ListItem Value="G">게스트 하우스</asp:ListItem>
-            </asp:CheckBoxList> <!--옵션목록 추가-->
+            </asp:CheckBoxList>
             <h4 style="font-size: 22px; margin: 0px 25px 0px; padding-top: 15px;">▷ 가격대 (최소 ~ 최대)</h4>
             <p><asp:TextBox ID="MinPriceTB" runat="server" OnTextChanged="MinPriceTB_TextChanged" AutoPostBack="true"></asp:TextBox>원
             &nbsp;~<asp:TextBox ID="MaxPriceTB" runat="server" OnTextChanged="MaxPriceTB_TextChanged" AutoPostBack="true"></asp:TextBox>원</p>
-            <!--텍스트박스 이벤트 추가, 오토추가-->
         </div>
         <div class="result">
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SNCConnectionString %>" SelectCommand="SELECT Accommodation_Name.A_Name, Accommodation_Name.A_Address, Accommodation_Info.Room_Numer, Accommodation_Info.Price, Accommodation_Info.Room_type, Accommodation_Name.A_Option FROM Accommodation_Name INNER JOIN Accommodation_Info ON Accommodation_Name.A_Address = Accommodation_Info.A_Address"></asp:SqlDataSource>
-            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+            <asp:DataList ID="dlist" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="Unnamed1_ItemCommand">
                 <ItemTemplate>
                     <image><!--숙소 이미지--></image>
-                    <div class="info">
-                        <strong><%# Eval("A_Name") %> <%# Eval("Room_type") %> </strong> <br />
+                    <div class="info" >
+                        <asp:LinkButton ID="Linkpage" CommandName="Select" runat="server" Text='<%# Eval("A_Name") %>'></asp:LinkButton>
+                         &nbsp;<%# Eval("Room_type") %><br />
                         <%# Eval("A_Address") %> <br />
                         <%# Eval("Price") %>원/1박
                     </div>
-                </ItemTemplate> <!--리스트 -->
+                </ItemTemplate>
+                
                 <SeparatorTemplate><hr /></SeparatorTemplate>
-            </asp:Repeater>
+            </asp:DataList>
         </div>
     </div>
     </form>

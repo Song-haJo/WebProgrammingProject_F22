@@ -30,6 +30,7 @@
         }
     </style>
 </head>
+
 <body>
     <form id="form1" runat="server">
     <div>
@@ -37,108 +38,81 @@
             <image src="logo.png" style="width: 70px;" />
         </div>
         <div class="wrap">
-        <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderStyle="Solid" BorderWidth="1px" Font-Names="NanumSquare_ac" CreateUserButtonText="회원가입">
-            <ContinueButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="NanumSquare_ac" ForeColor="#284E98" />
-            <CreateUserButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="NanumSquare_ac" Font-Size="20px" ForeColor="#284E98" />
-            <TitleTextStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <WizardSteps>
-                <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
-                    <ContentTemplate>
-                        <table>
-                            <tr>
-                                <td align="center" colspan="2" style="height: 50px;"><h1>회원가입</h1></td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">성명:</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="필수 항목입니다." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="PhoneNumberLabel" runat="server" AssociatedControlID="PhoneNumber">연락처:</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="PhoneNumber" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="PhoneNumberRequired" runat="server" ControlToValidate="PhoneNumber" ErrorMessage="필수 항목입니다." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">E-mail:</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="Email" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="필수 항목입니다." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">비밀번호:</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="필수 항목입니다." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword">비밀번호 확인:</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="ConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" ErrorMessage="비밀번호를 확인해주십시오." ToolTip="Confirm Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Email">주소:</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="Address" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="AddressRequired" runat="server" ControlToValidate="Address" ErrorMessage="필수 항목입니다." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center" colspan="2">
-                                    <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword" Display="Dynamic" ErrorMessage="비밀번호를 다시 한번 확인해주십시오." ValidationGroup="CreateUserWizard1"></asp:CompareValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center" colspan="2" style="color:Red;">
-                                    <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
-                                </td>
-                            </tr>
-                        </table>
-                    </ContentTemplate>
-                </asp:CreateUserWizardStep>
-                <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server">
-                    <ContentTemplate>
-                        <table>
-                            <tr>
-                                <td align="center" colspan="2">회원가입 완료</td>
-                            </tr>
-                            <tr>
-                                <td>계정을 성공적으로 생성하였습니다.</td>
-                            </tr>
-                            <tr>
-                                <td align="right" colspan="2">
-                                    <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" Text="확인" ValidationGroup="CreateUserWizard1" />
-                                </td>
-                            </tr>
-                        </table>
-                    </ContentTemplate>
-                </asp:CompleteWizardStep>
-            </WizardSteps>
-            <HeaderStyle BackColor="#284E98" BorderColor="#EFF3FB" BorderStyle="Solid" BorderWidth="2px" Font-Bold="True" Font-Size="0.9em" ForeColor="White" HorizontalAlign="Center" />
-            <NavigationButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284E98" />
-            <SideBarButtonStyle BackColor="#507CD1" Font-Names="Verdana" ForeColor="White" />
-            <SideBarStyle BackColor="#507CD1" Font-Size="0.9em" VerticalAlign="Top" />
-            <StepStyle Font-Size="0.8em" />
-        </asp:CreateUserWizard>
+
+            <table style="width:100%;">
+                <tr>
+                    <td colspan="4" class="auto-style1">
+                        <h1>회원가입</h1>          
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="auto-style2">
+                        <asp:Label ID="Label1" runat="server" Text="성명:"></asp:Label>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="Name" runat="server" AutoPostBack="True" OnTextChanged="Name_TextChanged"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="auto-style2">
+                        <asp:Label ID="Label2" runat="server" Text="연락처:"></asp:Label>
+                    </td>
+                    <td class="auto-style4" colspan="2">
+                        <asp:TextBox ID="Phone" runat="server" AutoPostBack="True" OnTextChanged="Name_TextChanged" TextMode="Phone"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="auto-style2">
+                        <asp:Label ID="Label3" runat="server" Text="E-mail:"></asp:Label>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="Email" runat="server" AutoPostBack="True" OnTextChanged="Name_TextChanged" TextMode="Email"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="auto-style2">
+                        <asp:Label ID="Label4" runat="server" Text="비밀번호:"></asp:Label>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="Pessword" runat="server" TextMode="Password" AutoPostBack="True" OnTextChanged="Name_TextChanged" OnPreRender="Pessword_PreRender" ></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="auto-style2">
+                        <asp:Label ID="Label5" runat="server" Text="비밀번호 확인:"></asp:Label>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="PesswordCheck" runat="server" TextMode="Password" AutoPostBack="True" OnTextChanged="Name_TextChanged" OnPreRender="PesswordCheck_PreRender" ></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="auto-style2">
+                        <asp:Label ID="Label6" runat="server" Text="주소:"></asp:Label>
+                    </td>
+                    <td colspan="2">
+                        <asp:TextBox ID="Address" runat="server" OnTextChanged="Name_TextChanged" AutoPostBack="True"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" colspan="4">
+                        <asp:Label ID="announcement" runat="server" Text="성명을 입력해 주세요"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1" colspan="4" style="color:Red;">
+                        <asp:Label ID="ErrorMessage" runat="server" Text=""></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:Button ID="btnSingup" runat="server" Text="회원가입" OnClick="btnSingup_Click" Visible="false" />
+                    </td>
+                </tr>
+            </table>
+
             </div>
     </div>
     </form>
